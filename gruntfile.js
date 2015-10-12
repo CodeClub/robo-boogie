@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
- 
-      
+
+
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     // Project configuration.
     grunt.initConfig({
- 
+
         pkg: grunt.file.readJSON('package.json'),
 
         // Metadata.
@@ -14,11 +14,11 @@ module.exports = function(grunt) {
             srcPath: 'assets/sass/',
             deployPath: 'assets/css/'
         },
- 
+
         banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                 '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
                 '* Copyright (c) <%= grunt.template.today("yyyy") %> ',
- 
+
         // Task configuration.
         sass: {
             dist: {
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 }
             }
         },
- 
+
         watch: {
             options: {
                 livereload: true
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                 }
             }
         },
-   
+
         // grunt-open will open your browser at the project's URL
         open: {
             all: {
@@ -65,9 +65,9 @@ module.exports = function(grunt) {
         /**
         *
         * r.js build
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         requirejs: {
             compile: {
                 options: {
@@ -76,6 +76,7 @@ module.exports = function(grunt) {
                     include: ['app'],
                     insertRequire: ['app'],
                     out: "build/assets/js/roboboogie.min.js",
+                    optimize: "none",
                     preserveLicenseComments: false,
                     findNestedDependencies: true,
                     paths: {
@@ -150,42 +151,42 @@ module.exports = function(grunt) {
         /**
         *
         * Copy files and folders to new dir
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         copy: {
             // js : {
-            //     expand: true, 
+            //     expand: true,
             //     cwd: 'dev/assets/js/libs/',
             //     src: '**',
             //     dest: 'build/assets/js/libs/'
             // },
             api : {
-                expand: true, 
+                expand: true,
                 cwd: 'dev/api/',
                 src: '**',
                 dest: 'build/api/'
             },
             css : {
-                expand: true, 
+                expand: true,
                 cwd: 'dev/assets/css/',
                 src: '**',
                 dest: 'build/assets/css/'
             },
             data : {
-                expand: true, 
+                expand: true,
                 cwd: 'dev/assets/data/',
                 src: '**',
                 dest: 'build/assets/data/'
             },
             font : {
-                expand: true, 
+                expand: true,
                 cwd: 'dev/assets/font/',
                 src: '**',
                 dest: 'build/assets/font/'
             },
             music : {
-                expand: true, 
+                expand: true,
                 cwd: 'dev/assets/music/',
                 src: '**',
                 dest: 'build/assets/music/'
@@ -196,9 +197,9 @@ module.exports = function(grunt) {
         /**
         *
         * Replace timestamps for versioning
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         replace: {
             dist: {
             options: {
@@ -211,7 +212,7 @@ module.exports = function(grunt) {
             },
             files: [
                     {
-                        src: ['build/index.html'], 
+                        src: ['build/index.html'],
                         dest: 'build/index.html'
                     }
                 ]
@@ -223,9 +224,9 @@ module.exports = function(grunt) {
         /**
         *
         * Process html - swaps out the dev script tag for the build one
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         processhtml: {
             options: {
                 data: {
@@ -243,9 +244,9 @@ module.exports = function(grunt) {
         /**
         *
         * Minified CSS
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         cssmin: {
             minify: {
                 files: {
@@ -258,30 +259,30 @@ module.exports = function(grunt) {
         /**
         *
         * Image minification
-        * 
+        *
         * ------------------------------------------------- */
-        
-        imagemin: {                        
-            dynamic: {                         
+
+        imagemin: {
+            dynamic: {
                 files: [{
-                    expand: true,                 
-                    cwd: 'dev/assets/img/',         
-                    src: ['**/*.{png,jpg,gif}'],  
-                    dest: 'build/assets/img/'         
+                    expand: true,
+                    cwd: 'dev/assets/img/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'build/assets/img/'
                 }]
             }
         }
- 
+
     });
- 
+
 
     /**
     *
     * Load the neccesary tasks
-    * 
+    *
     * ------------------------------------------------- */
-    
-    
+
+
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-replace');
@@ -292,13 +293,13 @@ module.exports = function(grunt) {
     /**
     *
     * Build task
-    * 
+    *
     * ------------------------------------------------- */
 
     var buildTasks      = [
-        'copy', 
-        'processhtml', 
-        'replace', 
+        'copy',
+        'processhtml',
+        'replace',
         'cssmin',
         'imagemin',
         'requirejs'
@@ -308,11 +309,11 @@ module.exports = function(grunt) {
 
     /* Server
      ------------------------------------------------- */
-    
+
     grunt.registerTask('server', [
       'express',
       'open',
       'watch'
     ]);
- 
+
 };
