@@ -14,4 +14,4 @@ set :ssh_options, {
   user:          'deploy'
 }
 
-set :linked_dirs, fetch(:linked_dirs, []).push('build/api/application/logs')
+# set :linked_dirs, fetch(:linked_dirs, []).push('build/api/application/logs')
