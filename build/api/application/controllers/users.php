@@ -1,12 +1,12 @@
 <?php
 
-require(APPPATH . 'libraries/REST_Controller.php');  
+require(APPPATH . 'libraries/REST_Controller.php');
 
-class Users extends REST_Controller {  
+class Users extends REST_Controller {
 
-    
+
     // --------------------------------------------------------------------
-    
+
     /**
      * Gets information about a user
      */
@@ -15,7 +15,7 @@ class Users extends REST_Controller {
 
         /* Get the user
          ------------------------------------------------- */
-        
+
         $uuid               = $this->get('uuid');
 
         $existing_user      = new User();
@@ -24,7 +24,7 @@ class Users extends REST_Controller {
 
         // Check if they exist
         if ($existing_user->exists()) {
-                
+
             $existing_user->dance->get();
 
             $dances         = array();
@@ -47,45 +47,45 @@ class Users extends REST_Controller {
             $data = array(
                 'uuid'          => $uuid,
                 'dances'        => $dances
-            );  
+            );
 
         } else {
-            
+
             /* They don't exists, create them
              ------------------------------------------------- */
-            
+
             $user           = new User();
             $user->uuid     = $uuid;
 
             if ($user->save()) {
 
-                $data = array('uuid' => $uuid);  
+                $data = array('uuid' => $uuid);
 
             } else {
 
-                $data = array('uuid' => false);  
+                $data = array('uuid' => false);
 
             }
-           
+
 
         }
 
 
-        $this->response($data);  
+        $this->response($data);
 
     }
 
     // --------------------------------------------------------------------
-    
+
     /**
      * Creates a new user
      */
-   
+
     function user_put() {
-        
+
         /* Check for an existing user
          ------------------------------------------------- */
-        
+
         $uuid               = $this->put('uuid');
 
         $existing_user      = new User();
@@ -94,10 +94,10 @@ class Users extends REST_Controller {
 
         if ($existing_user->exists()) {
 
-            $output     = array('User with UUID '. $uuid .' already exists');  
+            $output     = array('User with UUID '. $uuid .' already exists');
 
         } else {
-            
+
             // They don't exist, create them
 
             $user           = new User();
@@ -105,38 +105,39 @@ class Users extends REST_Controller {
 
             if ($user->save()) {
 
-                $output = array('User created with UUID: '. $uuid);  
+                $output = array('User created with UUID: '. $uuid);
+                log_message('error', 'User created');
 
             } else {
 
-                $output = array('Error saving user');  
-
+                $output = array('Error saving user');
+                log_message('error', 'Error creating user');
             }
 
         }
 
         /* TODO - return dance and robot data here
          ------------------------------------------------- */
-        
-        
-        $this->response($output);  
+
+
+        $this->response($output);
 
     }
 
     function user_post() {
 
-        $data = array('user_post: '. $this->post('id'));  
-        $this->response($data);  
-        
+        $data = array('user_post: '. $this->post('id'));
+        $this->response($data);
+
     }
 
     function user_delete() {
 
-        $data = array('user_delete: '. $this->delete('id'));  
-        $this->response($data);  
-        
+        $data = array('user_delete: '. $this->delete('id'));
+        $this->response($data);
+
     }
 
-}  
+}
 
 ?>
