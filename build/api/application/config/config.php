@@ -16,7 +16,7 @@
 */
 
 
-$config['base_url']	= 'https://'.$_SERVER['HTTP_HOST'].'/api/';
+$config['base_url']	= 'http://'.$_SERVER['HTTP_HOST'].'/api/';
 
 
 /*
