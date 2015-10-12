@@ -5,7 +5,7 @@ set :repo_url,      'git@github.com:CodeClub/robo-boogie.git'
 set :user,          'deploy'
 set :scm,           :git
 set :format,        :pretty
-set :log_level,     :debug # :debug required for rsync --verbose output
+set :log_level,     :info
 set :keep_releases, 5
 
 set :ssh_options, {
@@ -13,3 +13,5 @@ set :ssh_options, {
   keys:          %w(~/.ssh/id_rsa.pub),
   user:          'deploy'
 }
+
+set :linked_dirs, fetch(:linked_dirs, []).push('build/api/application/logs')
