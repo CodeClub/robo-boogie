@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
-$db['default']['database'] = 'ci_codeclub';
+$db['default']['password'] = 'L8u2fYu2bh9AQDunhAzmqvTc79enkDMx';
+$db['default']['database'] = 'codeclub_roboboogie';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
