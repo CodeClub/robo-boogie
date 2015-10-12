@@ -185,6 +185,9 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 */
 $config['log_threshold'] = 3;
 
+display_errors(true);
+error_reporting(E_ALL);
+
 /*
 |--------------------------------------------------------------------------
 | Error Logging Directory Path
