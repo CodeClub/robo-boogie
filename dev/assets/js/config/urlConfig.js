@@ -7,9 +7,9 @@ define(["backbone",
     /**
     *
     * Sets the URL depending on location
-    * 
+    *
     * ------------------------------------------------- */
-    
+
     var urlConfig   = Backbone.Model.extend({
         initialize: function () {
 
@@ -20,7 +20,7 @@ define(["backbone",
 
             } else {
 
-                this.set('url', 'http://' + window.location.host);
+                this.set('url', 'https://' + window.location.host);
                 this.set('env', 'production');
 
             }
@@ -29,5 +29,5 @@ define(["backbone",
     });
 
     return urlConfig;
-  
+
 });
