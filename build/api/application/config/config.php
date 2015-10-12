@@ -16,7 +16,7 @@
 */
 
 
-$config['base_url']	= 'http://'.$_SERVER['HTTP_HOST'].'/api/';
+$config['base_url']	= 'https://'.$_SERVER['HTTP_HOST'].'/api/';
 
 
 /*
@@ -183,10 +183,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 3;
-
-display_errors(true);
-error_reporting(E_ALL);
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
