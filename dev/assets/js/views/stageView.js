@@ -12,15 +12,15 @@ define(["backbone",
     /**
     *
     * StageView
-    * 
+    *
     * ------------------------------------------------- */
 
     var StageView = Backbone.View.extend({
-      
+
         tagName: 'div',
 
         className: 'stage',
-        
+
         events : {
             'click .js-edit' : 'onEditClick',
             'click .js-submit' : 'onSubmitClick',
@@ -40,7 +40,7 @@ define(["backbone",
             self.router         = options.router;
             self.user           = options.user;
             self.preloader      = new Preloader();
-         
+
             $('#container').append(self.el);
 
 
@@ -51,8 +51,8 @@ define(["backbone",
 
             /* Show
              ------------------------------------------------- */
-            
-            self.listenTo(self.app_state, 'startDance', function () { 
+
+            self.listenTo(self.app_state, 'startDance', function () {
 
                 self.preloader.reveal(self.el);
 
@@ -66,27 +66,27 @@ define(["backbone",
         /**
         *
         * onVote
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         onVote: function (event) {
-            
+
             var self            = this;
 
             event.preventDefault();
 
-            window.location     = "http://roboboogie.codeclub.org.uk/competition/vote?robot_id=" + self.danceMove.get("guid");
+            window.location     = "https://roboboogie.codeclub.org.uk/competition/vote?robot_id=" + self.danceMove.get("guid");
 
         },
-        
+
         /**
         *
         * Goes back to edit a dance
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         onEditClick: function (event) {
-                
+
             var self            = this;
 
             event.preventDefault();
@@ -104,9 +104,9 @@ define(["backbone",
         /**
         *
         * Submits a dance to the competition
-        * 
+        *
         * ------------------------------------------------- */
-        
+
         onSubmitClick: function (event) {
 
             var self        = this;
@@ -132,7 +132,7 @@ define(["backbone",
                 wait: true,
                 success: function (model, response) {
 
-                    // Disable sync again 
+                    // Disable sync again
                     self.model.sync     = function () {
 
                         return false;
@@ -142,7 +142,7 @@ define(["backbone",
                     $(event.currentTarget).addClass('is-entered');
 
                     // Push to the new location
-                    window.location     = "http://roboboogie.codeclub.org.uk/competition/enter?robot_id=" + self.danceMove.get('guid');
+                    window.location     = "https://roboboogie.codeclub.org.uk/competition/enter?robot_id=" + self.danceMove.get('guid');
 
                 },
                 error: function (model, response) {
@@ -159,12 +159,12 @@ define(["backbone",
             // alert('Will submit link to competition');
 
         },
-        
 
-        render: function() {          
+
+        render: function() {
 
             var self        = this;
-    
+
             var output      = '';
 
             /* Set the url (for the sharing field)
@@ -172,11 +172,11 @@ define(["backbone",
 
             // var sharingUrl  = encodeURIComponent(self.getUrl() + '/#watch/' + self.danceMove.get('guid'));
 
-            // self.danceMove.set('sharing_url', sharingUrl);  
+            // self.danceMove.set('sharing_url', sharingUrl);
 
             /* Show an edit url or a vote url?
             ------------------------------------------------- */
-            
+
             var isEditable                  = (self.user.id == self.danceMove.get('uuid')) ? true : false;
 
             self.danceMove.set('isEditable', isEditable);
@@ -185,17 +185,17 @@ define(["backbone",
 
             /* Is it entered into the competition?
              ------------------------------------------------- */
-            
+
             templateVars.entryClass         = (self.danceMove.get('is_entered_into_comp') == '1') ? 'is-entered' : '';
 
             output              += stage_template(templateVars);
-    
+
             self.$el.html(output);
-            
+
 
             /* Render the sharing view
              ------------------------------------------------- */
-    
+
             self.sharingView.setElement(self.$el.find('.js-sharing-container')).render();
 
 
@@ -209,5 +209,5 @@ define(["backbone",
 
     return StageView;
 
-  
+
 });
