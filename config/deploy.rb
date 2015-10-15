@@ -14,6 +14,4 @@ set :ssh_options, {
   user:          'deploy'
 }
 
-set :repo_tree, 'build' # only deploy the contents of the build dir
-
-set :linked_dirs, fetch(:linked_dirs, []).push('build/api/application/logs')
+set :linked_dirs, fetch(:linked_dirs, []).push('public', 'build/api/application/logs')
