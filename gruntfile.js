@@ -75,7 +75,7 @@ module.exports = function(grunt) {
                     name: 'libs/almond',
                     include: ['app'],
                     insertRequire: ['app'],
-                    out: "build/assets/js/roboboogie.min.js",
+                    out: "assets/js/roboboogie.min.js",
                     optimize: "none",
                     preserveLicenseComments: false,
                     findNestedDependencies: true,
@@ -159,37 +159,37 @@ module.exports = function(grunt) {
             //     expand: true,
             //     cwd: 'dev/assets/js/libs/',
             //     src: '**',
-            //     dest: 'build/assets/js/libs/'
+            //     dest: 'assets/js/libs/'
             // },
             api : {
                 expand: true,
                 cwd: 'dev/api/',
                 src: '**',
-                dest: 'build/api/'
+                dest: 'api/'
             },
             css : {
                 expand: true,
                 cwd: 'dev/assets/css/',
                 src: '**',
-                dest: 'build/assets/css/'
+                dest: 'assets/css/'
             },
             data : {
                 expand: true,
                 cwd: 'dev/assets/data/',
                 src: '**',
-                dest: 'build/assets/data/'
+                dest: 'assets/data/'
             },
             font : {
                 expand: true,
                 cwd: 'dev/assets/font/',
                 src: '**',
-                dest: 'build/assets/font/'
+                dest: 'assets/font/'
             },
             music : {
                 expand: true,
                 cwd: 'dev/assets/music/',
                 src: '**',
-                dest: 'build/assets/music/'
+                dest: 'assets/music/'
             }
         },
 
@@ -212,8 +212,8 @@ module.exports = function(grunt) {
             },
             files: [
                     {
-                        src: ['build/index.html'],
-                        dest: 'build/index.html'
+                        src: ['index.html'],
+                        dest: 'index.html'
                     }
                 ]
             }
@@ -235,7 +235,7 @@ module.exports = function(grunt) {
             },
             dist: {
             files: {
-                'build/index.html': ['dev/index.html']
+                'index.html': ['dev/index.html']
             }
         }
         },
@@ -250,7 +250,7 @@ module.exports = function(grunt) {
         cssmin: {
             minify: {
                 files: {
-                    'build/assets/css/main.css': ['build/assets/css/main.css']
+                    'assets/css/main.css': ['assets/css/main.css']
                 }
             }
         },
@@ -268,7 +268,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'dev/assets/img/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'build/assets/img/'
+                    dest: 'assets/img/'
                 }]
             }
         }
