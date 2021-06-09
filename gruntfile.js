@@ -262,16 +262,16 @@ module.exports = function(grunt) {
         *
         * ------------------------------------------------- */
 
-        // imagemin: {
-        //     dynamic: {
-        //         files: [{
-        //             expand: true,
-        //             cwd: 'dev/assets/img/',
-        //             src: ['**/*.{png,jpg,gif}'],
-        //             dest: 'assets/img/'
-        //         }]
-        //     }
-        // }
+        imagemin: {
+            dynamic: {
+                files: [{
+                    expand: true,
+                    cwd: 'dev/assets/img/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'assets/img/'
+                }]
+            }
+        }
 
     });
 
@@ -288,7 +288,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    // grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     /**
     *
@@ -301,7 +301,7 @@ module.exports = function(grunt) {
         'processhtml',
         'replace',
         'cssmin',
-        // 'imagemin',
+        'imagemin',
         'requirejs'
     ];
 
