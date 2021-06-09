@@ -15,15 +15,15 @@
     <!-- Facebook -->
     <meta property="og:title" content="Code Club" />
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://rpf-roboboogie-production.herokuapp.com/assets/img/robots/tv/preview@1x.png" />
-    <meta property="og:url" content="https://rpf-roboboogie-production.herokuapp.com/" />
+    <meta property="og:image" content="https://roboboogie.codeclub.org.uk/assets/img/robots/tv/preview@1x.png" />
+    <meta property="og:url" content="https://roboboogie.codeclub.org.uk/" />
     <meta property="og:description" content="Use the ROBO-BOOGIE tool to create the best dancing robot!" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Robo Boogie" />
     <meta name="twitter:description" content="Use the ROBO-BOOGIE tool to create the best dancing robot!" />
-    <meta name="twitter:image" content="https://rpf-roboboogie-production.herokuapp.com/assets/img/robots/tv/preview@1x.png" />
+    <meta name="twitter:image" content="https://roboboogie.codeclub.org.uk/assets/img/robots/tv/preview@1x.png" />
 
     <!-- .Meta tags -->
 
