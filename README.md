@@ -1,8 +1,8 @@
-![Robo-Boogie](https://roboboogie.codeclub.org.uk/assets/img/logo%401x.png)
+![Robo-Boogie](https://rpf-roboboogie-production.herokuapp.com/assets/img/logo%401x.png)
 
 Robo-boogie is a web-based robot dancing game made for [Code Club](https://www.codeclub.org.uk) by [Hover Studio](http://hoverstud.io).
 
-You can check the app out online at [roboboogie.codeclub.org.uk](https://roboboogie.codeclub.org.uk)
+You can check the app out online at [rpf-roboboogie-production.herokuapp.com](https://rpf-roboboogie-production.herokuapp.com)
 
 We learned a lot building the app so we've put the code up here in the hopes it might interesting/helpful to somebody!
 

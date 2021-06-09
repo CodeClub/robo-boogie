@@ -75,7 +75,7 @@ define(["backbone",
 
             event.preventDefault();
 
-            window.location     = "https://roboboogie.codeclub.org.uk/competition/vote?robot_id=" + self.danceMove.get("guid");
+            window.location     = "https://rpf-roboboogie-production.herokuapp.com/competition/vote?robot_id=" + self.danceMove.get("guid");
 
         },
 
@@ -142,7 +142,7 @@ define(["backbone",
                     $(event.currentTarget).addClass('is-entered');
 
                     // Push to the new location
-                    window.location     = "https://roboboogie.codeclub.org.uk/competition/enter?robot_id=" + self.danceMove.get('guid');
+                    window.location     = "https://rpf-roboboogie-production.herokuapp.com/competition/enter?robot_id=" + self.danceMove.get('guid');
 
                 },
                 error: function (model, response) {
