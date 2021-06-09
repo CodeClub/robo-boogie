@@ -132,9 +132,26 @@ define(['backbone',
 
                 self.user.set({'uuid': userID});
 
-                localStorage.setItem('codeclub_userID', userID);
+                self.user.save(null, {
 
-                self.startHistory();
+                    success: function (model, response) {
+
+                        // Set the ID
+                        localStorage.setItem('codeclub_userID', userID);
+
+                        self.startHistory();
+
+                    },
+                    error: function (error, resp) {
+
+                        console.error(error);
+                        console.log(resp);
+
+                        alert("Unable to save you as a user");
+
+                    }
+
+                });
 
             } else {
                 
